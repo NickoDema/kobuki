@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Base driver -->
+  <include file="$(find agv_driver)/launch/agv_driver.launch"/>
+
+  <!-- gmapping slam -->
+  <include file="$(find agv_navigation)/launch/map_building.launch"/>
+
+  <!-- Navigation | teb -->
+  <include file="$(find agv_navigation)/launch/teb_navigation.launch"/>
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+
+  <!-- Agv high-level management | ROS API -->
+  <node pkg="agv" type="agv_control.py" name="agv" output="screen" />
+
+</launch>

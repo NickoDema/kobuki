@@ -43,6 +43,8 @@ RUN apt install -y ros-kinetic-rgbd-launch \
     ros-kinetic-libuvc-camera \
     ros-kinetic-libuvc-ros \
     ros-kinetic-teleop-twist-keyboard && \
+    ros-kinetic-gmapping \
+    ros-kinetic-move-base \
     rosdep update && \
     rosdep install --from-paths ${DRIVERS_WS} --ignore-src --rosdistro=kinetic -y
 

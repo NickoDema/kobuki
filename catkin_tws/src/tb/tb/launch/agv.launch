@@ -1,0 +1,19 @@
+<launch>
+
+  <!-- Base driver -->
+  <include file="$(find agv_driver)/launch/agv_driver.launch"/>
+
+  <!-- Navigation | dwa -->
+  <include file="$(find agv_navigation)/launch/dwa_navigation.launch"/>
+
+  <!-- Agv high-level management | ROS API -->
+  <include file="$(find agv)/launch/agv_control.launch"/>
+
+  <!-- Follow subsystem -->
+  <include file="$(find agv_follow)/launch/follow.launch"/>
+
+  <!-- Communication with RCS -->
+  <!-- <include file="$(find agv_comm)/launch/xmpp_agv_cl.launch"/> -->
+
+
+</launch>

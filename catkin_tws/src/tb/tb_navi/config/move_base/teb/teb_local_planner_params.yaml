@@ -1,0 +1,127 @@
+TebLocalPlannerROS:
+
+  odom_topic: 'odom'
+  map_frame:  'odom'
+
+# Robot Configuration Parameters
+  acc_lim_theta: 1.0
+  acc_lim_x: 0.4
+  acc_lim_y: 0.5
+
+  max_vel_theta: 1.0
+  max_vel_x: 0.5
+  max_vel_x_backwards: 0.5
+  max_vel_y: 0.0
+
+  footprint_model:
+    type: "polygon"
+    vertices: [ [ 0.56,  0.355],
+                [-0.56,  0.355],
+                [-0.56, -0.355],
+                [ 0.56, -0.355] ]
+
+  is_footprint_dynamic: false
+  wheelbase: 0.0
+  cmd_angle_instead_rotvel: false
+  min_turning_radius: 0.0
+
+# Trajectory
+  teb_autosize: true
+  dt_ref: 0.3
+  dt_hysteresis: 0.08
+  global_plan_overwrite_orientation: true
+  max_global_plan_lookahead_dist: 5.0
+  feasibility_check_no_poses: 5
+  allow_init_with_backwards_motion: true
+  # If true, the planner uses the exact arc length
+  # in velocity, acceleration and turning rate
+  # computations (-> increased cpu time), otherwise
+  # the Euclidean approximation is used.
+  exact_arc_length: false
+  # Reinitialize the trajectory if a previous goal
+  # is updated with a separation of more than the
+  # specified value in meters (skip hot-starting)
+  force_reinit_new_goal_dist: 1.0
+  global_plan_viapoint_sep: -1.0
+
+# GoalTolerance
+  xy_goal_tolerance: 0.3
+  yaw_goal_tolerance: 0.05
+  free_goal_vel: false
+
+# Obstacles
+  min_obstacle_dist: 0.15
+  include_costmap_obstacles: true
+  costmap_obstacles_behind_robot_dist: 2.0
+  obstacle_poses_affected: 30
+  costmap_converter_plugin: ""
+  costmap_converter_spin_thread: True
+  costmap_converter_rate: 5
+  # If this parameter is set to true, the motion
+  # of obstacles with non-zero velocity is predicted
+  # and considered during optimization via a constant
+  # velocity model.
+  include_dynamic_obstacles: false
+  # Buffer zone around obstacles with non-zero
+  # penalty costs (should be larger than min_obstacle_dist
+  # in order to take effect). Also refer to the weight
+  # weight_inflation.
+  inflation_dist: 0.6
+  dynamic_obstacle_inflation_dist: 0.6
+  # Old strategy: for each obstacle, find the
+  # nearest TEB pose
+  legacy_obstacle_association: false
+  obstacle_association_cutoff_factor: 5.0
+  obstacle_association_force_inclusion_factor: 1.5
+
+
+# Optimization
+  no_inner_iterations: 5
+  no_outer_iterations: 4
+  optimization_activate: true
+  optimization_verbose: false
+  penalty_epsilon: 0.1
+  weight_acc_lim_theta: 1.0
+  weight_acc_lim_x: 1.0
+  weight_acc_lim_y: 1.0
+  weight_adapt_factor: 2.0
+  weight_dynamic_obstacle: 50.0
+  weight_dynamic_obstacle_inflation: 0.1
+  weight_inflation: 0.1
+  weight_kinematics_forward_drive: 1.0
+  weight_kinematics_nh: 1000.0
+  weight_kinematics_turning_radius: 1.0
+  weight_max_vel_theta: 1.0
+  weight_max_vel_x: 2.0
+  weight_max_vel_y: 2.0
+  weight_obstacle: 50.0
+  weight_optimaltime: 4.0
+  weight_viapoint: 1.0
+
+# Homotopy Class Planner
+  enable_homotopy_class_planning: True
+  enable_multithreading: True
+  simple_exploration: False
+  max_number_classes: 5
+  roadmap_graph_no_samples: 15
+  roadmap_graph_area_width: 5
+  h_signature_prescaler: 1.0
+  h_signature_threshold: 0.1
+  obstacle_keypoint_offset: 0.1
+  obstacle_heading_threshold: 0.45
+  visualize_hc_graph: False
+
+
+  oscillation_recovery: true
+  publish_feedback: false
+  roadmap_graph_area_length_scale: 1.0
+  selection_alternative_time_cost: false
+  selection_cost_hysteresis: 1.0
+  selection_obst_cost_scale: 100.0
+  selection_prefer_initial_plan: 0.95
+  selection_viapoint_cost_scale: 1.0
+  shrink_horizon_backup: true
+  switching_blocking_period: 0.0
+  via_points_ordered: false
+  viapoints_all_candidates: true
+  visualize_with_time_as_z_axis_scale: 0.0

@@ -1,0 +1,17 @@
+<launch>
+
+  <!--Sensors for navigation-->
+  <include file="$(find agv_navigation)/launch/rplidar_a3.launch"/>
+
+  <!-- Map server -->
+  <node name="map_server" type="map_server" pkg="map_server" args="$(find agv_navigation)/maps/map.yaml" />
+
+  <!-- Localization -->
+  <node pkg="amcl" type="amcl" name="amcl">
+    <rosparam file="$(find agv_navigation)/config/amcl_params.yaml" command="load" />
+  </node>
+
+  <!--move_base-->
+  <include file="$(find agv_navigation)/launch/move_base_dwa.launch"/>
+
+</launch>

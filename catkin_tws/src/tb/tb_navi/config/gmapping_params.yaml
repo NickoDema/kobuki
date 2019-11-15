@@ -1,0 +1,34 @@
+base_frame: "base_footprint"
+odom_frame: "odom"
+map_update_interval: 5.0
+maxUrange: 14.0
+maxRange: 15.0
+sigma: 0.05
+kernelSize: 1
+lstep: 0.05
+astep: 0.05
+iterations: 5
+lsigma: 0.075
+ogain: 3.0
+lskip: 0
+minimumScore: 200
+srr: 0.01
+srt: 0.02
+str: 0.01
+stt: 0.02
+linearUpdate: 2000
+angularUpdate: 3000
+temporalUpdate: 15.0
+resampleThreshold: 0.5
+particles: 100
+
+xmin: -10.0
+ymin: -10.0
+xmax: 10.0
+ymax: 10.0
+
+delta: 0.02
+llsamplerange: 0.01
+llsamplestep: 0.01
+lasamplerange: 0.005
+lasamplestep: 0.005

@@ -1,0 +1,10 @@
+<launch>
+
+  <!--Sensors for navigation-->
+  <include file="$(find agv_navigation)/launch/rplidar_a3.launch"/>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+    <rosparam file="$(find agv_navigation)/config/gmapping_params.yaml" command="load" />
+  </node>
+
+</launch>

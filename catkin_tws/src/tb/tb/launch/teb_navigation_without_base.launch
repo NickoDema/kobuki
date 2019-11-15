@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- Base driver -->
+  <include file="$(find agv_description)/launch/base_description.launch"/>
+
+  <!-- Navigation | dwa -->
+  <include file="$(find agv_navigation)/launch/teb_navigation.launch"/>
+
+</launch>

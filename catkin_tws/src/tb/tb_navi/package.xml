@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv_navigation</name>
+  <version>0.0.0</version>
+  <description>The agv_navigation package</description>
+
+  <maintainer email="ndema2301@gmail.com">agv</maintainer>
+
+  <license>MIT</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>move_base</depend>
+  <depend>move_base_msgs</depend>
+  <depend>gmapping</depend>
+
+
+  <export>
+  </export>
+</package>

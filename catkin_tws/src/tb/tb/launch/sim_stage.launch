@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- Stage | rviz -->
+  <include file="$(find agv_sim)/launch/stage.launch"/>
+
+  <!-- Agv high-level management | ROS API -->
+  <node pkg="agv" type="agv_control.py" name="agv" output="screen" />
+
+  <!-- Communication with RCS -->
+  <!-- <include file="$(find agv_comm)/launch/xmpp_agv_cl.launch"/> -->
+
+
+</launch>
