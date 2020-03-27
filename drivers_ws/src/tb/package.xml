@@ -13,8 +13,8 @@
   <author email="ndema2301@gmail.com">Nikolay Dema</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>joy</run_depend>
-  <run_depend>teleop_twist_joy</run_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
