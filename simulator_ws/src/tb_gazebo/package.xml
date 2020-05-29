@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>tb_gazebo</name>
   <version>2.2.3</version>
   <description>TurtleTown for StarLine hackathon</description>
@@ -12,11 +12,13 @@
 
   <!-- <run_depend>yocs_cmd_vel_mux</run_depend> -->
   <!-- <run_depend>depthimage_to_laserscan</run_depend> -->
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>tb_gazebo_plugins</run_depend>
-  <run_depend>robot_state_publisher</run_depend>
-  <run_depend>tb_gazebo_description</run_depend>
-  <run_depend>xacro</run_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>tb_gazebo_plugins</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>tb_gazebo_description</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
 
   <export>
     <gazebo_ros gazebo_model_path="${prefix}/.." />

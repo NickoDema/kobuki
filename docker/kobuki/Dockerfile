@@ -31,9 +31,7 @@ RUN /bin/bash -c "source ~/.bashrc"
 
 COPY ${DRIVERS_WS} ${DRIVERS_WS}
 
-RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-kinetic-teleop-twist-keyboard \
-                                                  ros-kinetic-teleop-twist-joy \
-                                                  ros-kinetic-joy && \
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-kinetic-teleop-twist-keyboard && \
     rosdep update && DEBIAN_FRONTEND=noninteractive rosdep install --from-paths ${DRIVERS_WS} --ignore-src --rosdistro=kinetic -y
 
 RUN rm -R ${DRIVERS_WS}
