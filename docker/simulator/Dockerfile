@@ -39,24 +39,16 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $OS_DISTRO main" > /etc/apt/sources.list.d/ros-latest.list' && \
     apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
     apt-get update && apt-get install -y ros-kinetic-desktop gazebo7 && \
-    echo "source $ROS_INSTALL_PATH/setup.bash"  >> "/root/.bashrc" && \
-    echo "source ${SIM_WS}/devel/setup.bash" >> "/root/.bashrc" && \
+    echo "source $ROS_INSTALL_PATH/setup.bash"  >> ~/.bashrc && \
+    echo "source ${SIM_WS}/devel/setup.bash" >> ~/.bashrc && \
     rosdep init && rosdep update
 
 
 
-# Additional ROS packages
+# Install catkin tools and additional ROS packages
 
-RUN apt-get install -y ros-kinetic-teleop-twist-keyboard
-
-
-
-# Install catkin tools
-
-RUN echo "deb http://packages.ros.org/ros/ubuntu $OS_DISTRO main" > /etc/apt/sources.list.d/ros-latest.list && \
-    wget http://packages.ros.org/ros.key -O - | apt-key add - && \
-    apt-get update && apt-get install -y python-catkin-tools
-
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-catkin-tools \
+                                                      ros-kinetic-teleop-twist-keyboard
 
 
 # User WS dependings

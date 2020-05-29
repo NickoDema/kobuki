@@ -7,7 +7,7 @@ find_package(gazebo REQUIRED)
 find_package(catkin REQUIRED COMPONENTS gazebo_ros
                                         gazebo_plugins
                                         geometry_msgs
-                                        tb_gazebo_msgs
+                                        kobuki_msgs
                                         nav_msgs
                                         roscpp
                                         sensor_msgs
@@ -19,7 +19,7 @@ catkin_package(INCLUDE_DIRS include
                CATKIN_DEPENDS gazebo_ros
                               gazebo_plugins
                               geometry_msgs
-                              tb_gazebo_msgs
+                              kobuki_msgs
                               nav_msgs
                               roscpp
                               sensor_msgs

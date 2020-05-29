@@ -134,14 +134,14 @@ void GazeboRosKobuki::spin()
   }
 }
 
-void GazeboRosKobuki::motorPowerCB(const tb_gazebo_msgs::MotorPowerPtr &msg)
+void GazeboRosKobuki::motorPowerCB(const kobuki_msgs::MotorPowerPtr &msg)
 {
-  if ((msg->state == tb_gazebo_msgs::MotorPower::ON) && (!motors_enabled_))
+  if ((msg->state == kobuki_msgs::MotorPower::ON) && (!motors_enabled_))
   {
     motors_enabled_ = true;
     ROS_INFO_STREAM("Motors fired up. [" << node_name_ << "]");
   }
-  else if ((msg->state == tb_gazebo_msgs::MotorPower::OFF) && (motors_enabled_))
+  else if ((msg->state == kobuki_msgs::MotorPower::OFF) && (motors_enabled_))
   {
     motors_enabled_ = false;
     ROS_INFO_STREAM("Motors taking a rest. [" << node_name_ << "]");

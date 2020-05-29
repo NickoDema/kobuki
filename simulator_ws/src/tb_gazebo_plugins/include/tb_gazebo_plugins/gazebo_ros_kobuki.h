@@ -65,9 +65,9 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <tf/transform_broadcaster.h>
 #include <tf/LinearMath/Quaternion.h>
-#include <tb_gazebo_msgs/MotorPower.h>
-#include <tb_gazebo_msgs/CliffEvent.h>
-#include <tb_gazebo_msgs/BumperEvent.h>
+#include <kobuki_msgs/MotorPower.h>
+#include <kobuki_msgs/CliffEvent.h>
+#include <kobuki_msgs/BumperEvent.h>
 
 namespace gazebo
 {
@@ -93,7 +93,7 @@ private:
   /// Callback for incoming velocity commands
   void cmdVelCB(const geometry_msgs::TwistConstPtr &msg);
   /// Callback for incoming velocity commands
-  void motorPowerCB(const tb_gazebo_msgs::MotorPowerPtr &msg);
+  void motorPowerCB(const kobuki_msgs::MotorPowerPtr &msg);
   /// Callback for resetting the odometry data
   void resetOdomCB(const std_msgs::EmptyConstPtr &msg);
   /// Spin method for the spinner thread
@@ -202,7 +202,7 @@ private:
   /// ROS publisher for cliff detection events
   ros::Publisher cliff_event_pub_;
   /// Kobuki ROS message for cliff event
-  tb_gazebo_msgs::CliffEvent cliff_event_;
+  kobuki_msgs::CliffEvent cliff_event_;
   /// Cliff flag for the left sensor
   bool cliff_detected_left_;
   /// Cliff flag for the center sensor
@@ -218,7 +218,7 @@ private:
   /// ROS publisher for bumper events
   ros::Publisher bumper_event_pub_;
   /// Kobuki ROS message for bumper event
-  tb_gazebo_msgs::BumperEvent bumper_event_;
+  kobuki_msgs::BumperEvent bumper_event_;
   /// Flag for left bumper's last state
   bool bumper_left_was_pressed_;
   /// Flag for center bumper's last state

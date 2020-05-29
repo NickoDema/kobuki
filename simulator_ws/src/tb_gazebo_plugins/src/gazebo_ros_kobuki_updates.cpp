@@ -242,8 +242,8 @@ void GazeboRosKobuki::updateCliffSensor()
       (cliff_sensor_left_->Range(0) >= cliff_detection_threshold_))
   {
     cliff_detected_left_ = true;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::LEFT;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::CLIFF;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::LEFT;
+    cliff_event_.state = kobuki_msgs::CliffEvent::CLIFF;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_left_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -252,8 +252,8 @@ void GazeboRosKobuki::updateCliffSensor()
             (cliff_sensor_left_->Range(0) < cliff_detection_threshold_))
   {
     cliff_detected_left_ = false;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::LEFT;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::FLOOR;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::LEFT;
+    cliff_event_.state = kobuki_msgs::CliffEvent::FLOOR;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_left_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -263,8 +263,8 @@ void GazeboRosKobuki::updateCliffSensor()
       (cliff_sensor_center_->Range(0) >= cliff_detection_threshold_))
   {
     cliff_detected_center_ = true;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::CENTER;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::CLIFF;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::CENTER;
+    cliff_event_.state = kobuki_msgs::CliffEvent::CLIFF;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_center_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -273,8 +273,8 @@ void GazeboRosKobuki::updateCliffSensor()
             (cliff_sensor_center_->Range(0) < cliff_detection_threshold_))
   {
     cliff_detected_center_ = false;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::CENTER;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::FLOOR;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::CENTER;
+    cliff_event_.state = kobuki_msgs::CliffEvent::FLOOR;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_center_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -284,8 +284,8 @@ void GazeboRosKobuki::updateCliffSensor()
       (cliff_sensor_right_->Range(0) >= cliff_detection_threshold_))
   {
     cliff_detected_right_ = true;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::RIGHT;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::CLIFF;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::RIGHT;
+    cliff_event_.state = kobuki_msgs::CliffEvent::CLIFF;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_right_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -294,8 +294,8 @@ void GazeboRosKobuki::updateCliffSensor()
             (cliff_sensor_right_->Range(0) < cliff_detection_threshold_))
   {
     cliff_detected_right_ = false;
-    cliff_event_.sensor = tb_gazebo_msgs::CliffEvent::RIGHT;
-    cliff_event_.state = tb_gazebo_msgs::CliffEvent::FLOOR;
+    cliff_event_.sensor = kobuki_msgs::CliffEvent::RIGHT;
+    cliff_event_.state = kobuki_msgs::CliffEvent::FLOOR;
     // convert distance back to an AD reading
     cliff_event_.bottom = (int)(76123.0f * atan2(0.995f, cliff_sensor_right_->Range(0)));
     cliff_event_pub_.publish(cliff_event_);
@@ -367,43 +367,43 @@ void GazeboRosKobuki::updateBumper()
   if (bumper_left_is_pressed_ && !bumper_left_was_pressed_)
   {
     bumper_left_was_pressed_ = true;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::PRESSED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::LEFT;
+    bumper_event_.state = kobuki_msgs::BumperEvent::PRESSED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::LEFT;
     bumper_event_pub_.publish(bumper_event_);
   }
   else if (!bumper_left_is_pressed_ && bumper_left_was_pressed_)
   {
     bumper_left_was_pressed_ = false;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::RELEASED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::LEFT;
+    bumper_event_.state = kobuki_msgs::BumperEvent::RELEASED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::LEFT;
     bumper_event_pub_.publish(bumper_event_);
   }
   if (bumper_center_is_pressed_ && !bumper_center_was_pressed_)
   {
     bumper_center_was_pressed_ = true;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::PRESSED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::CENTER;
+    bumper_event_.state = kobuki_msgs::BumperEvent::PRESSED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::CENTER;
     bumper_event_pub_.publish(bumper_event_);
   }
   else if (!bumper_center_is_pressed_ && bumper_center_was_pressed_)
   {
     bumper_center_was_pressed_ = false;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::RELEASED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::CENTER;
+    bumper_event_.state = kobuki_msgs::BumperEvent::RELEASED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::CENTER;
     bumper_event_pub_.publish(bumper_event_);
   }
   if (bumper_right_is_pressed_ && !bumper_right_was_pressed_)
   {
     bumper_right_was_pressed_ = true;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::PRESSED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::RIGHT;
+    bumper_event_.state = kobuki_msgs::BumperEvent::PRESSED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::RIGHT;
     bumper_event_pub_.publish(bumper_event_);
   }
   else if (!bumper_right_is_pressed_ && bumper_right_was_pressed_)
   {
     bumper_right_was_pressed_ = false;
-    bumper_event_.state = tb_gazebo_msgs::BumperEvent::RELEASED;
-    bumper_event_.bumper = tb_gazebo_msgs::BumperEvent::RIGHT;
+    bumper_event_.state = kobuki_msgs::BumperEvent::RELEASED;
+    bumper_event_.bumper = kobuki_msgs::BumperEvent::RIGHT;
     bumper_event_pub_.publish(bumper_event_);
   }
 }

@@ -351,12 +351,12 @@ void GazeboRosKobuki::setupRosApi(std::string& model_name)
 
   // cliff
   std::string cliff_topic = base_prefix + "/events/cliff";
-  cliff_event_pub_ = gazebo_ros_->node()->advertise<tb_gazebo_msgs::CliffEvent>(cliff_topic, 1);
+  cliff_event_pub_ = gazebo_ros_->node()->advertise<kobuki_msgs::CliffEvent>(cliff_topic, 1);
   ROS_INFO("%s: Advertise Cliff[%s]!", gazebo_ros_->info(), cliff_topic.c_str());
 
   // bumper
   std::string bumper_topic = base_prefix + "/events/bumper";
-  bumper_event_pub_ = gazebo_ros_->node()->advertise<tb_gazebo_msgs::BumperEvent>(bumper_topic, 1);
+  bumper_event_pub_ = gazebo_ros_->node()->advertise<kobuki_msgs::BumperEvent>(bumper_topic, 1);
   ROS_INFO("%s: Advertise Bumper[%s]!", gazebo_ros_->info(), bumper_topic.c_str());
 
   // IMU
