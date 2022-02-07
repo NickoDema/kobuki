@@ -54,6 +54,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-catkin-tools \
 # User WS dependings
 
 COPY ${SIM_WS} ${SIM_WS}
-RUN rosdep install --from-paths ${SIM_WS} --ignore-src --rosdistro=${ROS_DISTRO} -y
+RUN rosdep update --include-eol-distros && DEBIAN_FRONTEND=noninteractive rosdep install --from-paths ${SIM_WS} --ignore-src --rosdistro=${ROS_DISTRO} -y
 
 RUN rm -R ${SIM_WS}
